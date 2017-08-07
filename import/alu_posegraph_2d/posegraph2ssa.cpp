@@ -54,7 +54,7 @@ int main(int argc, char **argv)
     return 0;
   }
 
-  bool debug=false;
+  //bool debug=false;
   //double maxrange=82;
 
   const char* logfile=0;
@@ -64,7 +64,7 @@ int main(int argc, char **argv)
   int c=1;
   while (c<argc){
     if (!strcmp(argv[c],"-debug")){
-      debug=true;
+      //debug=true;
       c++;
     } else
     if (!strcmp(argv[c],"-window")){

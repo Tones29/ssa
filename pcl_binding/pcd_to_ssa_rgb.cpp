@@ -62,7 +62,7 @@ int main(int argc, char **argv)
   int numOfScans = 100;
   int every = 1;
   double voxelSize = 0.01;
-  bool useLMS = false;
+  //bool useLMS = false;
   int c=1;
   while (c<argc){
     if (!strcmp(argv[c],"-e")){
@@ -86,7 +86,7 @@ int main(int argc, char **argv)
       c++;
     } else
     if (!strcmp(argv[c],"-lms")){
-      useLMS = true;
+      //useLMS = true;
       c++;
     } else
     if (! outputFile){
