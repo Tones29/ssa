@@ -17,6 +17,9 @@
 
 namespace ssa{
 
+using std::cerr;
+using std::endl;
+
   template <typename EdgeType1, typename EdgeType2, typename EdgeType3>
   NormalShootingFlann<EdgeType1, EdgeType2, EdgeType3>::NormalShootingFlann()
   {
@@ -39,7 +42,7 @@ namespace ssa{
     /** FLANN */
     std::vector<PointVertex*>& vertices = graph._verticies_points;
     PointTree kDTree;
-    kDTree.copyData(vertices);
+    kDTree.copyData(vertices,false);
     kDTree.createKDTree();
 
     std::vector<int>  indices = graph.getPoseIds();

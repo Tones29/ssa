@@ -12,7 +12,7 @@ ADD_EXECUTABLE(ssa_to_pgm
   gridlinetraversal.h
 )
 
-TARGET_LINK_LIBRARIES(ssa_to_pgm ssa_core types sensor_models g2o_core g2o_types_slam2d ${QT_QTXML_LIBRARY} ${QT_QTOPENGL_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTCORE_LIBRARY})
+TARGET_LINK_LIBRARIES(ssa_to_pgm ssa_core types sensor_models ${G2O_CORE_LIBRARY} ${G2O_TYPES_SLAM2D} ${QT_QTXML_LIBRARY} ${QT_QTOPENGL_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTCORE_LIBRARY})
 
 
 INSTALL(TARGETS ssa_to_pgm

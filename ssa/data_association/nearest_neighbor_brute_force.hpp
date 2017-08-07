@@ -27,7 +27,7 @@ NearestNeighborBruteForceT<EdgeType1, EdgeType2, EdgeType3>::~NearestNeighborBru
 
 template <typename EdgeType1, typename EdgeType2, typename EdgeType3>
 void 
-NearestNeighborBruteForceT<EdgeType1, EdgeType2, EdgeType3>::apply(CorrespondenceList& resultingCorrespondences, SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>& graph, SparseSurfaceAdjustmentParams& params, int level = 0)
+NearestNeighborBruteForceT<EdgeType1, EdgeType2, EdgeType3>::apply(CorrespondenceList& resultingCorrespondences, SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>& graph, SparseSurfaceAdjustmentParams& params, int level)
 {
   /** get valid scan pairs */
   std::vector< std::pair <int,int> > scanPairs;
@@ -45,7 +45,7 @@ NearestNeighborBruteForceT<EdgeType1, EdgeType2, EdgeType3>::apply(Correspondenc
 
 template <typename EdgeType1, typename EdgeType2, typename EdgeType3>
 void 
-NearestNeighborBruteForceT<EdgeType1, EdgeType2, EdgeType3>::apply(OverlapMap overlap, CorrespondenceList& resultingCorrespondences, SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>& graph, SparseSurfaceAdjustmentParams& params, int level = 0)
+NearestNeighborBruteForceT<EdgeType1, EdgeType2, EdgeType3>::apply(OverlapMap overlap, CorrespondenceList& resultingCorrespondences, SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>& graph, SparseSurfaceAdjustmentParams& params, int level)
 {
   /** get valid scan pairs */
   std::vector< std::pair <int,int> > scanPairs = getScanPairs(graph, overlap, 0.6);
@@ -57,7 +57,7 @@ NearestNeighborBruteForceT<EdgeType1, EdgeType2, EdgeType3>::apply(OverlapMap ov
 
 template <typename EdgeType1, typename EdgeType2, typename EdgeType3>
 void 
-NearestNeighborBruteForceT<EdgeType1, EdgeType2, EdgeType3>::apply(ScanPairVector scanPairs, CorrespondenceList& resultingCorrespondences, SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>& graph, SparseSurfaceAdjustmentParams& params, int level = 0)
+NearestNeighborBruteForceT<EdgeType1, EdgeType2, EdgeType3>::apply(ScanPairVector scanPairs, CorrespondenceList& resultingCorrespondences, SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>& graph, SparseSurfaceAdjustmentParams& params, int level)
 {
   /** construct correspondence lists for every thread, for parallel filling */
   std::vector< CorrespondenceList > correspondencesPerThread;
@@ -81,7 +81,7 @@ NearestNeighborBruteForceT<EdgeType1, EdgeType2, EdgeType3>::apply(ScanPairVecto
 
 template <typename EdgeType1, typename EdgeType2, typename EdgeType3>
 void 
-NearestNeighborBruteForceT<EdgeType1, EdgeType2, EdgeType3>::applyForScanPair(int id1, int id2, CorrespondenceList& resultingCorrespondences, SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>& graph, double sqrDistance, int level = 0)
+NearestNeighborBruteForceT<EdgeType1, EdgeType2, EdgeType3>::applyForScanPair(int id1, int id2, CorrespondenceList& resultingCorrespondences, SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>& graph, double sqrDistance, int level)
 {
   std::vector<PointVertex* >& vertices_id1 = graph.getPointVertices(id1, level);
   std::vector<PointVertex* >& vertices_id2 = graph.getPointVertices(id2, level);

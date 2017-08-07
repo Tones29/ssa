@@ -16,6 +16,9 @@
 
 namespace ssa{
 
+using std::cerr;
+using std::endl;
+
   template <typename EdgeType1, typename EdgeType2, typename EdgeType3>
   SparseSurfaceAdjustmentT<EdgeType1, EdgeType2, EdgeType3>::SparseSurfaceAdjustmentT()
   {
@@ -149,7 +152,7 @@ namespace ssa{
   template <typename EdgeType1, typename EdgeType2, typename EdgeType3>
   void SparseSurfaceAdjustmentT<EdgeType1, EdgeType2, EdgeType3>::dumpConnectivityMatrix()
   {
-    ofstream matrix("ssa-matrix-dump.txt");
+    std::ofstream matrix("ssa-matrix-dump.txt");
       for (g2o::OptimizableGraph::EdgeSet::iterator it=graph()->_optimizer.edges().begin(); it!=graph()->_optimizer.edges().end(); it++)
       {
         matrix << (*it)->vertices()[0]->id() << " " << (*it)->vertices()[1]->id() << " 1" << endl;

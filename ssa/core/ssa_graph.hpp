@@ -16,6 +16,8 @@
 
 namespace ssa{
 
+using std::max;
+
   template <typename EdgeType1, typename EdgeType2, typename EdgeType3>
   SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>::SparseSurfaceAdjustmentGraphT() : maxVertexId(0), max_level_(0)
   {
@@ -473,7 +475,7 @@ namespace ssa{
   }
 
   template <typename EdgeType1, typename EdgeType2, typename EdgeType3>
-  void SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>::filterOutlier(int minNeighbors=2){
+  void SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>::filterOutlier(int minNeighbors){
     for(size_t i = 0; i < _verticies_points.size(); ++i){
       PointVertex* v =_verticies_points[i];
       int neighbors = v->edges().size();
@@ -1227,7 +1229,7 @@ namespace ssa{
 
   template <typename EdgeType1, typename EdgeType2, typename EdgeType3>
   std::vector<typename SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>::PointVertex* >&
-  SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>::getPointVertices(int poseId, int level = 0)
+  SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>::getPointVertices(int poseId, int level)
   {
 
     if(_hierarchical_point_vertex_index.size() == 0){
@@ -1236,7 +1238,7 @@ namespace ssa{
       {
         SensorEdgeType*& edge = _edges_observations[i];
         PointVertex* v=static_cast<PointVertex*>(edge->vertices()[1]);
-        max_level_ = max(max_level_, edge->level());
+        max_level_ = std::max(max_level_, edge->level());
         //std::cerr << i << " " << PVAR(edge->vertices()[0]->id()) << " " << PVAR(edge->level()) << std::endl;
         for(int j = edge->level(); j >= 0; --j)
           _hierarchical_point_vertex_index[edge->vertices()[0]->id()][j].push_back(v);

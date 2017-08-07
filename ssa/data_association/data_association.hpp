@@ -24,7 +24,7 @@ DataAssociationT<EdgeType1, EdgeType2, EdgeType3>::DataAssociationT(): strategy_
 
 template <typename EdgeType1, typename EdgeType2, typename EdgeType3>
 void 
-DataAssociationT<EdgeType1, EdgeType2, EdgeType3>::apply(SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>& graph, SparseSurfaceAdjustmentParams& params, int level = 0)
+DataAssociationT<EdgeType1, EdgeType2, EdgeType3>::apply(SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>& graph, SparseSurfaceAdjustmentParams& params, int level)
 {
   switch (strategy_) {
     case BRUTEFORCE:
@@ -141,7 +141,7 @@ DataAssociationT<EdgeType1, EdgeType2, EdgeType3>::apply(SparseSurfaceAdjustment
 
 template <typename EdgeType1, typename EdgeType2, typename EdgeType3>
 void 
-DataAssociationT<EdgeType1, EdgeType2, EdgeType3>::applyBasedOnOverlap(SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>& graph, SparseSurfaceAdjustmentParams& params, int level = 0)
+DataAssociationT<EdgeType1, EdgeType2, EdgeType3>::applyBasedOnOverlap(SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>& graph, SparseSurfaceAdjustmentParams& params, int level)
 {
   int maxLevel = graph.getMaxLevel();
   OverlapMap overlapMap = overlap(graph, params, maxLevel);
@@ -201,7 +201,7 @@ DataAssociationT<EdgeType1, EdgeType2, EdgeType3>::applyBasedOnOverlap(SparseSur
 
 template <typename EdgeType1, typename EdgeType2, typename EdgeType3>
 typename DataAssociationT<EdgeType1, EdgeType2, EdgeType3>::OverlapMap
-DataAssociationT<EdgeType1, EdgeType2, EdgeType3>::overlap(SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>& graph, SparseSurfaceAdjustmentParams& params, int level = 0)
+DataAssociationT<EdgeType1, EdgeType2, EdgeType3>::overlap(SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>& graph, SparseSurfaceAdjustmentParams& params, int level)
 {
   correspondences.clear();
   NearestNeighborKdtreeT<EdgeType1, EdgeType2, EdgeType3> daKdTree;

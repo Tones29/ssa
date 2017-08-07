@@ -24,7 +24,7 @@ ADD_EXECUTABLE(ssa_constructor_benchmark
   ssa_constructor_benchmark.cpp
 )
 
-TARGET_LINK_LIBRARIES(ssa_constructor_benchmark ssa_core types_3d g2o_stuff g2o_types_slam3d g2o_types_sba g2o_core g2o_solver_cholmod ${CHOLMOD_LIBRARIES} ${BLAS_LIBRARIES} g2o_solver_csparse flann ${CSPARSE_LIBRARY} ${QT_QTCORE_LIBRARY})
+TARGET_LINK_LIBRARIES(ssa_constructor_benchmark ssa_core types_3d ${G2O_STUFF_LIBRARY} ${G2O_TYPES_SLAM3D} ${G2O_TYPES_SBA} ${G2O_CORE_LIBRARY} ${G2O_SOLVER_CHOLMOD} ${G2O_SOLVER_CSPARSE} ${CHOLMOD_LIBRARIES} ${BLAS_LIBRARIES} flann ${CSPARSE_LIBRARY} ${QT_QTCORE_LIBRARY})
 
 INSTALL(TARGETS ssa_constructor_benchmark
   RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin

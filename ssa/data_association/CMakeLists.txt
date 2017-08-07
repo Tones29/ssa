@@ -6,7 +6,8 @@ ADD_EXECUTABLE(ssa_test_data_association
   ssa_test_data_association.cpp
 )
 
-TARGET_LINK_LIBRARIES(ssa_test_data_association ssa_core types_3d flann g2o_stuff g2o_types_slam3d g2o_core g2o_types_icp)
+TARGET_LINK_LIBRARIES(ssa_test_data_association ssa_core types_3d flann ${G2O_CORE_LIBRARY} ${G2O_STUFF_LIBRARY} ${G2O_TYPES_SLAM3D} ${G2O_TYPES_ICP})
+#TARGET_LINK_LIBRARIES(ssa_test_data_association ssa_core types_3d flann g2o_stuff g2o_types_slam3d g2o_core g2o_types_icp)
 
 INSTALL(TARGETS ssa_test_data_association
   RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin

@@ -26,7 +26,7 @@ NearestNeighborKdtreeT<EdgeType1, EdgeType2, EdgeType3>::~NearestNeighborKdtreeT
 
 template <typename EdgeType1, typename EdgeType2, typename EdgeType3>
 void 
-NearestNeighborKdtreeT<EdgeType1, EdgeType2, EdgeType3>::apply(ScanPairVector scanPairs, CorrespondenceList& resultingCorrespondences, SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>& graph, SparseSurfaceAdjustmentParams& params, int level = 0)
+NearestNeighborKdtreeT<EdgeType1, EdgeType2, EdgeType3>::apply(ScanPairVector scanPairs, CorrespondenceList& resultingCorrespondences, SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>& graph, SparseSurfaceAdjustmentParams& params, int level)
 {
   double timing = get_time();
   /** construct correspondence lists for every thread, for parallel filling */

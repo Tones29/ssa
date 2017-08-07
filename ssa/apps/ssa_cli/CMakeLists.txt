@@ -10,26 +10,44 @@ ADD_EXECUTABLE(ssa_optimize_3d
   ssa_optimize_3d.cpp
 )
 
-TARGET_LINK_LIBRARIES(ssa_optimize_3d ssa_core types_3d g2o_stuff g2o_types_slam3d g2o_types_icp g2o_core g2o_solver_cholmod ${CHOLMOD_LIBRARIES} ${BLAS_LIBRARIES} g2o_csparse_extension g2o_solver_csparse flann ${CSPARSE_LIBRARY} ${QT_QTXML_LIBRARY} ${QT_QTCORE_LIBRARY})
+TARGET_LINK_LIBRARIES(ssa_optimize_3d
+    ssa_core types_3d
+   # ${CHOLMOD_LIBRARIES}
+    ${CHOLMOD_LIBRARY}
+    ${CSPARSE_LIBRARY}
+    ${LAPACK_LIBRARIES}
+    ${G2O_CLI_LIBRARY}
+    ${G2O_CORE_LIBRARY}
+    ${G2O_STUFF_LIBRARY}
+    ${G2O_TYPES_SLAM3D}
+    ${G2O_TYPES_ICP}
+    ${G2O_SOLVER_CHOLMOD}
+    ${G2O_SOLVER_CSPARSE}
+    ${G2O_SOLVER_CSPARSE_EXTENSION}
+    ${BLAS_LIBRARIES}
+    flann
+    ${QT_QTXML_LIBRARY}
+    ${QT_QTCORE_LIBRARY}
+    )
 
-ADD_EXECUTABLE(ssa_optimize_hierarchical_3d
-  ssa_optimize_hierarchical_3d.cpp
-)
+#ADD_EXECUTABLE(ssa_optimize_hierarchical_3d
+#  ssa_optimize_hierarchical_3d.cpp
+#)
 
-TARGET_LINK_LIBRARIES(ssa_optimize_hierarchical_3d ssa_core types_3d g2o_stuff g2o_types_slam3d g2o_types_icp g2o_core g2o_solver_cholmod ${CHOLMOD_LIBRARIES} ${BLAS_LIBRARIES} g2o_solver_csparse g2o_csparse_extension flann ${CSPARSE_LIBRARY} ${QT_QTXML_LIBRARY} ${QT_QTCORE_LIBRARY})
+#TARGET_LINK_LIBRARIES(ssa_optimize_hierarchical_3d ssa_core types_3d ${G2O_CORE_LIBRARY} ${G2O_STUFF_LIBRARY} ${G2O_TYPES_SLAM3D} ${G2O_TYPES_ICP} ${G2O_SOLVER_CHOLMOD} ${CHOLMOD_LIBRARIES} ${G2O_SOLVER_CSPARSE} ${G2O_SOLVER_DENSE}  ${G2O_OPTIMIZATION_LIBRARY} ${BLAS_LIBRARIES} ${G2O_SOLVER_CSPARSE} ${G2O_SOLVER_CSPARSE_EXTENSION} flann ${CSPARSE_LIBRARY} ${QT_QTXML_LIBRARY} ${QT_QTCORE_LIBRARY})
 
-IF(CUDA_FOUND AND SSA_USE_CUDA)
+#IF(CUDA_FOUND AND SSA_USE_CUDA)
 
-INCLUDE_DIRECTORIES(${CUDA_SDK_ROOT_DIR}/shared/inc/ ${CUDA_SDK_ROOT_DIR}/C/common/inc/ ${CUDA_INCLUDE_DIRS})
-ADD_EXECUTABLE(ssa_optimize_3d_cuda
-  ssa_optimize_3d_cuda.cpp
-)
+#INCLUDE_DIRECTORIES(${CUDA_SDK_ROOT_DIR}/shared/inc/ ${CUDA_SDK_ROOT_DIR}/C/common/inc/ ${CUDA_INCLUDE_DIRS})
+#ADD_EXECUTABLE(ssa_optimize_3d_cuda
+#  ssa_optimize_3d_cuda.cpp
+#)
 
-TARGET_LINK_LIBRARIES(ssa_optimize_3d_cuda ssa_core types_3d g2o_stuff g2o_types_slam3d g2o_types_icp g2o_core g2o_solver_cholmod ${CHOLMOD_LIBRARIES} ${BLAS_LIBRARIES} g2o_solver_csparse g2o_csparse_extension flann ${CSPARSE_LIBRARY} ${QT_QTXML_LIBRARY} ${QT_QTCORE_LIBRARY} ${CUDA_cublas_LIBRARY} ${CUDA_cusparse_LIBRARY} solver_pcg_cuda pcg_cuda ${CUDA_SDK_LIBRARIES})
-ENDIF(CUDA_FOUND AND SSA_USE_CUDA)
+#TARGET_LINK_LIBRARIES(ssa_optimize_3d_cuda ssa_core types_3d g2o_stuff g2o_types_slam3d g2o_types_icp g2o_core g2o_solver_cholmod ${CHOLMOD_LIBRARIES} ${BLAS_LIBRARIES} g2o_solver_csparse g2o_csparse_extension flann ${CSPARSE_LIBRARY} ${QT_QTXML_LIBRARY} ${QT_QTCORE_LIBRARY} ${CUDA_cublas_LIBRARY} ${CUDA_cusparse_LIBRARY} solver_pcg_cuda pcg_cuda ${CUDA_SDK_LIBRARIES})
+#ENDIF(CUDA_FOUND AND SSA_USE_CUDA)
 
-INSTALL(TARGETS ssa_optimize_3d
-  RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
-  LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
-  ARCHIVE DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
-)
+#INSTALL(TARGETS ssa_optimize_3d
+#  RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
+#  LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
+#  ARCHIVE DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
+#)

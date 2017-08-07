@@ -29,7 +29,7 @@ namespace ssa{
 
   template <typename EdgeType1, typename EdgeType2, typename EdgeType3>
   void 
-  LocalRefinement<EdgeType1, EdgeType2, EdgeType3>::apply(SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>& graph, SparseSurfaceAdjustmentParams& params, int level = 0)
+  LocalRefinement<EdgeType1, EdgeType2, EdgeType3>::apply(SparseSurfaceAdjustmentGraphT<EdgeType1, EdgeType2, EdgeType3>& graph, SparseSurfaceAdjustmentParams& params, int level)
   {
     #pragma omp parallel for shared(graph) num_threads(params.maxThreads)
     for(int j = 0; j <  (int)graph._edges_data_association.size(); ++j)

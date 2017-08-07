@@ -33,7 +33,7 @@ namespace ssa{
   };
 
   template <typename PointVertexType>
-  void KDTreeFlannT<PointVertexType>::copyData(std::vector<PointVertexType* >& vertices, bool useVectorIndices = false){
+  void KDTreeFlannT<PointVertexType>::copyData(std::vector<PointVertexType* >& vertices, bool useVectorIndices){
 
 //     double timing = get_time();
     int num_of_points = vertices.size();

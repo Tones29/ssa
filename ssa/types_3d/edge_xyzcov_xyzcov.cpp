@@ -47,6 +47,9 @@ namespace ssa {
 
   bool EdgePointXYZCovPointXYZCov::read(std::istream& is)
   {
+    // is currently not used
+    (void)is;
+
     /** the measurement should always be 0,0,0 and the information matrix is computed in computeError() */
     Eigen::Vector3d p(0.0,0.0,0.0);
 //     is >> p[0] >> p[1] >> p[2];
